@@ -128,6 +128,8 @@ section{padding:5.5rem 5vw;}
 .btn-send{background:var(--rose);color:#fff;border:none;padding:0.95em 2.4em;border-radius:3em;font-family:'DM Sans',sans-serif;font-size:0.83rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s,transform 0.2s;align-self:flex-start;box-shadow:0 4px 20px rgba(200,68,106,0.35);}
 .btn-send:hover{opacity:0.88;transform:translateY(-2px);}
 .form-success{display:none;background:rgba(200,68,106,0.15);border:1px solid var(--rose);border-radius:0.6rem;padding:1rem;font-size:0.87rem;color:var(--blush);margin-top:0.5rem;}
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.7rem;background:#25D366;color:#fff;padding:0.9em 2em;border-radius:3em;text-decoration:none;font-size:0.85rem;letter-spacing:0.08em;font-weight:500;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.35);}
+.whatsapp-btn:hover{opacity:0.9;transform:translateY(-2px);}
 
 /* FOOTER */
 footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;}
@@ -164,6 +166,8 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
   .price-card.featured{transform:none;}
   footer{flex-direction:column;align-items:flex-start;}
 }
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.7rem;background:#25D366;color:#fff;padding:0.9em 2em;border-radius:3em;text-decoration:none;font-size:0.85rem;font-weight:500;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+.whatsapp-btn:hover{opacity:0.9;transform:translateY(-2px);}
 </style>
 </head>
 <body>
@@ -433,20 +437,20 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
     </div>
   </div>
   <div class="reveal">
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" action="https://formspree.io/f/xzdkklrq" method="POST">
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" name="uname" placeholder="e.g. Rahim Ahmed" required></div>
-        <div class="form-group"><label>Email</label><input type="email" name="uemail" placeholder="you@email.com" required></div>
+        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="e.g. Rahim Ahmed" required></div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
       </div>
       <div class="form-group">
         <label>Service Needed</label>
-        <select name="uservice">
+        <select name="service">
           <option value="">&#8212; Select a service &#8212;</option>
           <option>Logo Design</option><option>Poster / Brochure</option><option>Business Card</option>
           <option>Brand Identity</option><option>Social Media Design</option><option>Custom Project</option>
         </select>
       </div>
-      <div class="form-group"><label>Your Message</label><textarea name="umessage" placeholder="Tell me about your project&#8230;" required></textarea></div>
+      <div class="form-group"><label>Your Message</label><textarea name="message" placeholder="Tell me about your project&#8230;" required></textarea></div>
       <button type="submit" class="btn-send">Send Message &#10022;</button>
       <div class="form-success" id="formSuccess">&#10022; Thank you! I&#39;ll get back to you within 24 hours.</div>
     </form>
@@ -493,16 +497,7 @@ document.getElementById('lbClose').onclick=function(){
 document.getElementById('lightbox').onclick=function(e){
   if(e.target===this){this.classList.remove('open');document.body.style.overflow='';}
 };
-document.getElementById('contactForm').onsubmit=function(e){
-  e.preventDefault();
-  var n=this.uname.value,em=this.uemail.value,sv=this.uservice.value,ms=this.umessage.value;
-  var sub=encodeURIComponent('Portfolio Inquiry - '+(sv||'General'));
-  var bd=encodeURIComponent('Name: '+n+'\nEmail: '+em+'\nService: '+sv+'\n\n'+ms);
-  window.open('mailto:esmakhanam2@gmail.com?subject='+sub+'&body='+bd,'_blank');
-  document.getElementById('formSuccess').style.display='block';
-  this.reset();
-  setTimeout(function(){document.getElementById('formSuccess').style.display='none';},6000);
-};
+// Form handled by Formspree
 </script>
 </body>
 </html>
