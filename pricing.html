@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Esma Khanam</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e0b0b;--cream:#f5f0eb;--rose:#c8446a;--blush:#e8a4b8;--light:#faf7f4;--muted:#9b8f8a;--card:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--light);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;background:rgba(245,240,235,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,68,106,0.12);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--rose);text-decoration:none;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{text-decoration:none;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);padding:0.5em 1.2em;border-radius:2em;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{background:var(--rose);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.hamburger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--cream);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--ink);text-decoration:none;transition:color 0.2s;}
+.mobile-menu a:hover{color:var(--rose);}
+.mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;cursor:pointer;color:var(--ink);}
+
+/* BUTTONS */
+.btn-primary{background:var(--rose);color:#fff;padding:0.85em 2.2em;border-radius:3em;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(200,68,106,0.3);display:inline-block;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,68,106,0.4);}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:0.85em 2.2em;border-radius:3em;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s;display:inline-block;}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose);}
+.btn-rose-outline{border:1.5px solid var(--rose);color:var(--rose);padding:0.85em 2.2em;border-radius:3em;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s;display:inline-block;}
+.btn-rose-outline:hover{background:var(--rose);color:#fff;}
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.7rem;background:#25D366;color:#fff;padding:0.9em 2em;border-radius:3em;text-decoration:none;font-size:0.85rem;font-weight:500;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
+.whatsapp-btn:hover{opacity:0.9;transform:translateY(-2px);}
+
+/* SHARED */
+.page-wrap{padding-top:5rem;}
+.section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:0.6rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.1;margin-bottom:2rem;}
+
+/* FOOTER */
+footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;}
+.footer-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);}
+.footer-links{display:flex;gap:1rem;flex-wrap:wrap;}
+.footer-links a{color:rgba(245,240,235,0.5);text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;transition:color 0.2s;}
+.footer-links a:hover{color:var(--rose);}
+.footer-social{display:flex;gap:0.6rem;}
+.footer-social a{width:33px;height:33px;border-radius:50%;border:1px solid rgba(245,240,235,0.18);display:flex;align-items:center;justify-content:center;color:rgba(245,240,235,0.5);text-decoration:none;font-size:0.7rem;transition:all 0.2s;}
+.footer-social a:hover{border-color:var(--rose);color:var(--rose);}
+.footer-copy{width:100%;text-align:center;font-size:0.72rem;margin-top:0.3rem;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .footer-links{display:none;}
+}
+@media(max-width:580px){
+  footer{flex-direction:column;align-items:flex-start;}
+}
+</style>
+
+
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">EK</a>
+  <ul class="nav-links">
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="about.html" id="nav-about">About</a></li>
+    <li><a href="portfolio.html" id="nav-portfolio">Portfolio</a></li>
+    <li><a href="pricing.html" id="nav-pricing">Pricing</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">&#x2715;</span>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="pricing.html" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+
+<div class="page-wrap">
+<style>
+.pricing-hero{padding:4rem 5vw 2rem;text-align:center;background:var(--cream);}
+.pricing-section{padding:4rem 5vw;background:var(--light);}
+.service-pricing-block{margin-bottom:4rem;}
+.service-pricing-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;}
+.pricing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.price-card{border-radius:1.2rem;padding:2rem 1.6rem;border:1.5px solid rgba(200,68,106,0.15);background:var(--card);transition:transform 0.3s,box-shadow 0.3s;text-align:center;}
+.price-card.featured{background:var(--rose);color:#fff;border-color:var(--rose);transform:scale(1.03);box-shadow:0 16px 50px rgba(200,68,106,0.3);}
+.price-card:hover:not(.featured){transform:translateY(-5px);box-shadow:0 10px 35px rgba(200,68,106,0.12);}
+.plan-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin-bottom:0.3rem;}
+.plan-price{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:1;margin:0.8rem 0 0.2rem;}
+.plan-price span{font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:300;}
+.plan-delivery{font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.4rem;color:var(--muted);}
+.price-card.featured .plan-delivery{color:rgba(255,255,255,0.75);}
+.plan-features{list-style:none;text-align:left;margin-bottom:1.6rem;}
+.plan-features li{font-size:0.82rem;padding:0.45rem 0;border-bottom:1px solid rgba(200,68,106,0.08);display:flex;align-items:center;gap:0.5rem;}
+.price-card.featured .plan-features li{border-color:rgba(255,255,255,0.15);}
+.plan-features li::before{content:'✦';font-size:0.5rem;color:var(--rose);flex-shrink:0;}
+.price-card.featured .plan-features li::before{color:rgba(255,255,255,0.6);}
+.plan-cta{display:block;width:100%;padding:0.8em;border-radius:3em;text-decoration:none;text-align:center;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--rose);color:#fff;transition:opacity 0.2s;}
+.price-card.featured .plan-cta{background:#fff;color:var(--rose);}
+.plan-cta:hover{opacity:0.85;}
+.faq-section{padding:4rem 5vw;background:var(--cream);}
+.faq-item{border-bottom:1px solid rgba(200,68,106,0.12);padding:1.2rem 0;}
+.faq-q{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:0.88rem;line-height:1.7;color:var(--muted);margin-top:0.8rem;display:none;}
+.faq-a.open{display:block;}
+@media(max-width:768px){.pricing-cards{grid-template-columns:1fr;} .price-card.featured{transform:none;}}
+</style>
+
+<section class="pricing-hero">
+  <p class="section-label reveal">Transparent Rates</p>
+  <h1 class="section-title reveal">Simple <em>Pricing</em></h1>
+  <p style="color:var(--muted);max-width:500px;margin:0 auto;" class="reveal">No hidden fees. Choose the package that fits your needs.</p>
+</section>
+
+<section class="pricing-section">
+
+  <!-- LOGO DESIGN -->
+  <div class="service-pricing-block reveal">
+    <div class="service-pricing-title">&#10022; Logo Design</div>
+    <div class="pricing-cards">
+      <div class="price-card"><div class="plan-name">Basic</div><div class="plan-price">$15<span>/project</span></div><div class="plan-delivery">&#9201; 2-Day Delivery</div><ul class="plan-features"><li>1 Concept</li><li>2 Revisions</li><li>PNG &amp; JPG</li><li>Commercial Use</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card featured"><div class="plan-name">Standard</div><div class="plan-price">$30<span>/project</span></div><div class="plan-delivery">&#9201; 3-Day Delivery</div><ul class="plan-features"><li>3 Concepts</li><li>Unlimited Revisions</li><li>All File Formats</li><li>Source File</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$60<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>5 Concepts</li><li>Unlimited Revisions</li><li>All Formats + Mockup</li><li>Brand Guide PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+    </div>
+  </div>
+
+  <!-- BUSINESS CARD -->
+  <div class="service-pricing-block reveal">
+    <div class="service-pricing-title">&#9635; Business Card</div>
+    <div class="pricing-cards">
+      <div class="price-card"><div class="plan-name">Basic</div><div class="plan-price">$8<span>/project</span></div><div class="plan-delivery">&#9201; 2-Day Delivery</div><ul class="plan-features"><li>1 Side Design</li><li>2 Revisions</li><li>Print-Ready PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card featured"><div class="plan-name">Standard</div><div class="plan-price">$18<span>/project</span></div><div class="plan-delivery">&#9201; 3-Day Delivery</div><ul class="plan-features"><li>Double-Sided</li><li>Unlimited Revisions</li><li>All File Formats</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$35<span>/project</span></div><div class="plan-delivery">&#9201; 4-Day Delivery</div><ul class="plan-features"><li>Double-Sided + Mockup</li><li>Unlimited Revisions</li><li>Source File</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+    </div>
+  </div>
+
+  <!-- POSTER & BROCHURE -->
+  <div class="service-pricing-block reveal">
+    <div class="service-pricing-title">&#9672; Poster &amp; Brochure</div>
+    <div class="pricing-cards">
+      <div class="price-card"><div class="plan-name">Basic</div><div class="plan-price">$10<span>/project</span></div><div class="plan-delivery">&#9201; 2-Day Delivery</div><ul class="plan-features"><li>1 Page Design</li><li>2 Revisions</li><li>Print-Ready PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card featured"><div class="plan-name">Standard</div><div class="plan-price">$22<span>/project</span></div><div class="plan-delivery">&#9201; 3-Day Delivery</div><ul class="plan-features"><li>Bi-fold Brochure</li><li>Unlimited Revisions</li><li>All File Formats</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$45<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>Tri-fold Brochure</li><li>Unlimited Revisions</li><li>Mockup Included</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+    </div>
+  </div>
+
+  <!-- BRAND IDENTITY -->
+  <div class="service-pricing-block reveal">
+    <div class="service-pricing-title">&#9689; Brand Identity</div>
+    <div class="pricing-cards">
+      <div class="price-card"><div class="plan-name">Starter</div><div class="plan-price">$50<span>/project</span></div><div class="plan-delivery">&#9201; 4-Day Delivery</div><ul class="plan-features"><li>Logo + Business Card</li><li>Color Palette</li><li>All File Formats</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+      <div class="price-card featured"><div class="plan-name">Full Brand</div><div class="plan-price">$120<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>Complete Brand Package</li><li>Logo + Card + Letterhead</li><li>Brand Guidelines PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="reveal"><p class="section-label">FAQ</p><h2 class="section-title">Common <em>Questions</em></h2></div>
+  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How do I place an order? <span>+</span></div><div class="faq-a">Simply contact me via the contact form or WhatsApp with your project details. I&#39;ll get back to you within 24 hours!</div></div>
+  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">What file formats will I receive? <span>+</span></div><div class="faq-a">Depending on your package, you&#39;ll receive PNG, JPG, PDF, and source files (AI or PSD).</div></div>
+  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How many revisions do I get? <span>+</span></div><div class="faq-a">Basic packages include 2 revisions. Standard and Premium packages include unlimited revisions until you are 100% satisfied.</div></div>
+  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">Do you work with international clients? <span>+</span></div><div class="faq-a">Yes! I work with clients from all over the world through Fiverr and direct contact.</div></div>
+  <div style="margin-top:3rem;text-align:center;" class="reveal"><a href="contact.html" class="btn-primary">Get A Custom Quote</a></div>
+</section>
+
+<script>
+function toggleFaq(el){
+  var ans=el.nextElementSibling;
+  var icon=el.querySelector('span');
+  ans.classList.toggle('open');
+  icon.textContent=ans.classList.contains('open')?'-':'+';
+}
+</script>
+</div>
+
+
+<footer>
+  <div class="footer-name">Esma Khanam &#8212; Graphic Designer</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/esmakhanam5/" target="_blank">in</a>
+    <a href="https://www.instagram.com/esmakhanam5" target="_blank">ig</a>
+    <a href="https://www.facebook.com/esmakhanam5" target="_blank">fb</a>
+    <a href="https://x.com/esmakhanam5" target="_blank">&#120143;</a>
+    <a href="https://www.behance.net/esmakhanam05" target="_blank">Be</a>
+    <a href="https://dribbble.com/esmakhanam5" target="_blank">Dr</a>
+    <a href="https://github.com/esmakhanam5" target="_blank">gh</a>
+  </div>
+  <p class="footer-copy">&#169; 2025 Esma Khanam. All rights reserved.</p>
+</footer>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+var reveals=document.querySelectorAll('.reveal');
+var obs=new IntersectionObserver(function(e){
+  e.forEach(function(el,i){
+    if(el.isIntersecting){setTimeout(function(){el.target.classList.add('visible');},i*60);obs.unobserve(el.target);}
+  });
+},{threshold:0.08});
+reveals.forEach(function(el){obs.observe(el);});
+</script>
+
+
+<script>
+var el=document.getElementById('nav-pricing');
+if(el)el.classList.add('active');
+</script>
+</body>
+</html>
