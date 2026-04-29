@@ -11,8 +11,6 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--light);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;background:rgba(245,240,235,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,68,106,0.12);}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--rose);text-decoration:none;}
 .nav-links{display:flex;gap:0;list-style:none;}
@@ -25,8 +23,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:
 .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--ink);text-decoration:none;transition:color 0.2s;}
 .mobile-menu a:hover{color:var(--rose);}
 .mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;cursor:pointer;color:var(--ink);}
-
-/* BUTTONS */
 .btn-primary{background:var(--rose);color:#fff;padding:0.85em 2.2em;border-radius:3em;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(200,68,106,0.3);display:inline-block;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,68,106,0.4);}
 .btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:0.85em 2.2em;border-radius:3em;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s;display:inline-block;}
@@ -35,13 +31,9 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:
 .btn-rose-outline:hover{background:var(--rose);color:#fff;}
 .whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.7rem;background:#25D366;color:#fff;padding:0.9em 2em;border-radius:3em;text-decoration:none;font-size:0.85rem;font-weight:500;transition:opacity 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
 .whatsapp-btn:hover{opacity:0.9;transform:translateY(-2px);}
-
-/* SHARED */
 .page-wrap{padding-top:5rem;}
 .section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose);margin-bottom:0.6rem;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.1;margin-bottom:2rem;}
-
-/* FOOTER */
 footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;}
 .footer-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);}
 .footer-links{display:flex;gap:1rem;flex-wrap:wrap;}
@@ -51,23 +43,12 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
 .footer-social a{width:33px;height:33px;border-radius:50%;border:1px solid rgba(245,240,235,0.18);display:flex;align-items:center;justify-content:center;color:rgba(245,240,235,0.5);text-decoration:none;font-size:0.7rem;transition:all 0.2s;}
 .footer-social a:hover{border-color:var(--rose);color:var(--rose);}
 .footer-copy{width:100%;text-align:center;font-size:0.72rem;margin-top:0.3rem;}
-
-/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  .footer-links{display:none;}
-}
-@media(max-width:580px){
-  footer{flex-direction:column;align-items:flex-start;}
-}
+@media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.footer-links{display:none;}}
+@media(max-width:580px){footer{flex-direction:column;align-items:flex-start;}}
 </style>
-
 
 </head>
 <body>
@@ -115,7 +96,7 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
 .price-card.featured .plan-features li{border-color:rgba(255,255,255,0.15);}
 .plan-features li::before{content:'✦';font-size:0.5rem;color:var(--rose);flex-shrink:0;}
 .price-card.featured .plan-features li::before{color:rgba(255,255,255,0.6);}
-.plan-cta{display:block;width:100%;padding:0.8em;border-radius:3em;text-decoration:none;text-align:center;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--rose);color:#fff;transition:opacity 0.2s;}
+.plan-cta{display:block;width:100%;padding:0.8em;border-radius:3em;text-decoration:none;text-align:center;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--rose);color:#fff;transition:opacity 0.2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
 .price-card.featured .plan-cta{background:#fff;color:var(--rose);}
 .plan-cta:hover{opacity:0.85;}
 .faq-section{padding:4rem 5vw;background:var(--cream);}
@@ -123,7 +104,7 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
 .faq-q{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
 .faq-a{font-size:0.88rem;line-height:1.7;color:var(--muted);margin-top:0.8rem;display:none;}
 .faq-a.open{display:block;}
-@media(max-width:768px){.pricing-cards{grid-template-columns:1fr;} .price-card.featured{transform:none;}}
+@media(max-width:768px){.pricing-cards{grid-template-columns:1fr;}.price-card.featured{transform:none;}}
 </style>
 
 <section class="pricing-hero">
@@ -133,8 +114,6 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
 </section>
 
 <section class="pricing-section">
-
-  <!-- LOGO DESIGN -->
   <div class="service-pricing-block reveal">
     <div class="service-pricing-title">&#10022; Logo Design</div>
     <div class="pricing-cards">
@@ -143,8 +122,6 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
       <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$60<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>5 Concepts</li><li>Unlimited Revisions</li><li>All Formats + Mockup</li><li>Brand Guide PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
     </div>
   </div>
-
-  <!-- BUSINESS CARD -->
   <div class="service-pricing-block reveal">
     <div class="service-pricing-title">&#9635; Business Card</div>
     <div class="pricing-cards">
@@ -153,8 +130,6 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
       <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$35<span>/project</span></div><div class="plan-delivery">&#9201; 4-Day Delivery</div><ul class="plan-features"><li>Double-Sided + Mockup</li><li>Unlimited Revisions</li><li>Source File</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
     </div>
   </div>
-
-  <!-- POSTER & BROCHURE -->
   <div class="service-pricing-block reveal">
     <div class="service-pricing-title">&#9672; Poster &amp; Brochure</div>
     <div class="pricing-cards">
@@ -163,8 +138,6 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
       <div class="price-card"><div class="plan-name">Premium</div><div class="plan-price">$45<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>Tri-fold Brochure</li><li>Unlimited Revisions</li><li>Mockup Included</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
     </div>
   </div>
-
-  <!-- BRAND IDENTITY -->
   <div class="service-pricing-block reveal">
     <div class="service-pricing-title">&#9689; Brand Identity</div>
     <div class="pricing-cards">
@@ -172,38 +145,24 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
       <div class="price-card featured"><div class="plan-name">Full Brand</div><div class="plan-price">$120<span>/project</span></div><div class="plan-delivery">&#9201; 5-Day Delivery</div><ul class="plan-features"><li>Complete Brand Package</li><li>Logo + Card + Letterhead</li><li>Brand Guidelines PDF</li></ul><a href="contact.html" class="plan-cta">Order Now</a></div>
     </div>
   </div>
-
 </section>
 
-<!-- FAQ -->
 <section class="faq-section">
   <div class="reveal"><p class="section-label">FAQ</p><h2 class="section-title">Common <em>Questions</em></h2></div>
   <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How do I place an order? <span>+</span></div><div class="faq-a">Simply contact me via the contact form or WhatsApp with your project details. I&#39;ll get back to you within 24 hours!</div></div>
   <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">What file formats will I receive? <span>+</span></div><div class="faq-a">Depending on your package, you&#39;ll receive PNG, JPG, PDF, and source files (AI or PSD).</div></div>
-  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How many revisions do I get? <span>+</span></div><div class="faq-a">Basic packages include 2 revisions. Standard and Premium packages include unlimited revisions until you are 100% satisfied.</div></div>
+  <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How many revisions do I get? <span>+</span></div><div class="faq-a">Basic packages include 2 revisions. Standard and Premium packages include unlimited revisions.</div></div>
   <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">Do you work with international clients? <span>+</span></div><div class="faq-a">Yes! I work with clients from all over the world through Fiverr and direct contact.</div></div>
   <div style="margin-top:3rem;text-align:center;" class="reveal"><a href="contact.html" class="btn-primary">Get A Custom Quote</a></div>
 </section>
-
-<script>
-function toggleFaq(el){
-  var ans=el.nextElementSibling;
-  var icon=el.querySelector('span');
-  ans.classList.toggle('open');
-  icon.textContent=ans.classList.contains('open')?'-':'+';
-}
-</script>
+<script>function toggleFaq(el){var ans=el.nextElementSibling;var icon=el.querySelector('span');ans.classList.toggle('open');icon.textContent=ans.classList.contains('open')?'-':'+';}</script>
 </div>
 
 
 <footer>
   <div class="footer-name">Esma Khanam &#8212; Graphic Designer</div>
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
   </div>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/esmakhanam5/" target="_blank">in</a>
@@ -219,22 +178,12 @@ function toggleFaq(el){
 
 
 <script>
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 var reveals=document.querySelectorAll('.reveal');
-var obs=new IntersectionObserver(function(e){
-  e.forEach(function(el,i){
-    if(el.isIntersecting){setTimeout(function(){el.target.classList.add('visible');},i*60);obs.unobserve(el.target);}
-  });
-},{threshold:0.08});
+var obs=new IntersectionObserver(function(e){e.forEach(function(el,i){if(el.isIntersecting){setTimeout(function(){el.target.classList.add('visible');},i*60);obs.unobserve(el.target);}});},{threshold:0.08});
 reveals.forEach(function(el){obs.observe(el);});
 </script>
 
-
-<script>
-var el=document.getElementById('nav-pricing');
-if(el)el.classList.add('active');
-</script>
+<script>var el=document.getElementById("nav-pricing");if(el)el.classList.add("active");</script>
 </body>
 </html>
