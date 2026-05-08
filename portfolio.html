@@ -72,20 +72,58 @@ footer{background:#0a0808;color:rgba(245,240,235,0.5);padding:2.5rem 5vw;display
 .filter-btns{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem;}
 .filter-btn{padding:0.45em 1.2em;border-radius:2em;border:1.5px solid rgba(200,68,106,0.2);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;color:var(--ink);}
 .filter-btn:hover,.filter-btn.active{background:var(--rose);color:#fff;border-color:var(--rose);}
-.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:1.5rem 5vw 3rem;}
-.port-item{position:relative;cursor:pointer;border-radius:10px;overflow:hidden;height:210px;background:#f0ebe6;}
-.port-item img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.4s ease;}
-.port-item:hover img{transform:scale(1.06);}
-.port-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,11,11,0.75) 0%,transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:0.85rem;z-index:2;}
+
+/* ── PORTFOLIO GRID ── */
+.port-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  padding:1.5rem 5vw 3rem;
+}
+.port-item{
+  position:relative;
+  cursor:pointer;
+  border-radius:10px;
+  overflow:hidden;
+  background:#f0ebe6;
+  aspect-ratio:4/3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.port-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  transition:transform 0.4s ease;
+  padding:4px;
+}
+.port-item:hover img{transform:scale(1.04);}
+.port-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(14,11,11,0.72) 0%,transparent 55%);
+  opacity:0;
+  transition:opacity 0.3s;
+  display:flex;
+  align-items:flex-end;
+  padding:0.85rem;
+  z-index:2;
+}
 .port-item:hover .port-overlay{opacity:1;}
 .port-overlay span{color:#fff;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;}
+
+/* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,8,8,0.93);align-items:center;justify-content:center;padding:2rem;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:88vw;max-height:86vh;border-radius:0.8rem;object-fit:contain;}
 .lb-close{position:absolute;top:1.5rem;right:2rem;color:#fff;font-size:2rem;cursor:pointer;line-height:1;}
 .lb-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.65);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;}
+
 @media(max-width:900px){.port-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:500px){.port-grid{grid-template-columns:1fr;}.port-item{height:200px;}}
+@media(max-width:500px){.port-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -248,8 +286,13 @@ function openLb(el){
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
-document.getElementById('lbClose').onclick=function(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-document.getElementById('lightbox').onclick=function(e){if(e.target===this){this.classList.remove('open');document.body.style.overflow='';}}
+document.getElementById('lbClose').onclick=function(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('lightbox').onclick=function(e){
+  if(e.target===this){this.classList.remove('open');document.body.style.overflow='';}
+}
 function filterPort(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
